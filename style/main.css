@@ -1,0 +1,245 @@
+@font-face{
+    font-family: 'Raleway';
+    src: url(fonts/raleway-bold.ttf);
+}
+
+:root{
+    /* LIGHT THEME */
+    --fresh: #4AADAA;
+    --vermilion: #FC4A1A;
+    --sunshine: #F7B733;
+    --clean: #DFDCE3;
+    --dark: #3B0000;
+
+    /*STORM THEME:
+    --storm:#494E6B;
+    --cloud:#98878F;
+    --sunset:#985E6D;
+    --evening:#192231;
+    */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway';
+    letter-spacing: 1px;
+}
+
+body{
+    color: var(--fresh);
+    background-color: var(--clean);
+}
+
+/* Showcase Section */
+
+.showcase{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.showcase::after{
+    content: '';
+    height: 100vh;
+    width: 100%;
+    background: url(guy.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; 
+    display: block;
+    filter: blur(5px);
+    user-select: none;
+}
+
+.title{
+    color: var(--clean);
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    user-select: none;
+}
+
+/* Tab Section */
+
+.btn-group{
+    height: 80px;
+    z-index: 3;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--clean);
+}
+
+.info-btn{
+    color: var(--fresh);
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: var(--clean);
+    font-size: 1.2em;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    transition: background-color .4s ease-out;
+    user-select: none;
+}
+
+.info-box-group{
+    margin: 0;
+}
+
+.info-box{
+    float: left;
+    padding: 20px;
+    width: 100%;
+    height: 300px;
+    display: none;
+    background-color: var(--fresh);
+    color: var(--clean);
+}
+
+.active{
+    background-color: var(--fresh);
+    color: var(--clean);
+    display: block;
+}
+
+/* Example Section */
+
+.examples{
+    margin: 80px 0;
+    padding: 10px 20px;
+    width: 100%;
+    height: 500px;
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 90%;
+}
+.example-title{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Flip-Box Design */
+
+.inner-grid{
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.example-box{
+    perspective: 1000px;
+    width: 100%;
+}
+
+.example-box-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1.2s;
+    transform-style: preserve-3d;
+}
+
+.example-box .example-image{
+    width: 100%;
+    height: 100%;
+    background: url(coffee.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+
+.example-image, .example-back {
+    border-radius: 10px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.example-back{
+    background-color: var(--fresh);
+    color: var(--clean);
+    transform: rotateY(180deg);
+}
+.example-back h2{
+    padding: 15px;
+    text-align: center;
+}
+.example-back p{
+    padding: 20px;
+}
+.example-box:hover .example-box-inner {
+    transform: rotateY(180deg);
+}
+
+/* Zooming Boxes Design */
+
+
+.contact-section{
+    background-color: var(--fresh);
+    color: var(--clean);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    line-height: 100px;
+    text-transform: uppercase;
+    margin: 0;
+    border-top: 1.5px solid var(--clean);
+    border-bottom: 1.5px solid var(--clean);
+}
+
+.contact-section h1{margin: 0 40px;}
+.contact-section:first-child{border-top: none;}
+
+.ctwit{justify-content: center;}
+.cinst{justify-content: flex-end;}
+
+.contact-text{font-size: .9rem;}
+.usr-select{ user-select: none;}
+
+.contact-title{
+    display: none;
+}
+
+@media (max-width: 600px){
+    .examples{
+        min-height: 1000px;
+    }
+
+    .inner-grid{
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+
+    .example-title{
+        padding: 0;
+        margin: 0;
+        align-self: center;
+    }
+
+    .contact-section{
+        justify-content: start;
+        line-height: 2;
+        border: none;
+    }
+
+    .contact-title{
+        border-bottom: 2px solid var(--clean);
+        padding: 10px;
+        line-height: 1.8;
+        font-size: 1.8rem;
+    }
+
+    .txt-r{
+        position: relative;
+        right: 0;
+    }
+}
